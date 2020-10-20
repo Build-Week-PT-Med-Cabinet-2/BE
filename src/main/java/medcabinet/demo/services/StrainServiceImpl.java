@@ -64,7 +64,8 @@ public class StrainServiceImpl implements StrainService {
 
         newStrain.setName(strain.getName());
         newStrain.setType(strain.getType());
-        newStrain.setDescription(strain.getDescription());
+        newStrain.setSickness(strain.getSickness());
+        newStrain.setEffects(strain.getEffects());
         newStrain.setUser(user);
 
         return strainRepository.save(newStrain);

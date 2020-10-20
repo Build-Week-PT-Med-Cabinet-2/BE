@@ -31,7 +31,7 @@ public class LogoutController
      * @param request the Http request from which we find the authorization header which includes the token to be removed
      */
     // yes, both endpoints are mapped to the same Java method! So, either one will work.
-    @RequestMapping(value = {"/oauth/revoke-token", "/logout"},
+    @RequestMapping(value = {"/api/revoke-token", "/logout"},
             method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public void logoutSelf(HttpServletRequest request)

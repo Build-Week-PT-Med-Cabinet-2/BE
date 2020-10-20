@@ -14,7 +14,8 @@ public class Strain extends Auditable {
 
     private String name;
     private String type;
-    private String description;
+    private String sickness;
+    private String effects;
 
 
     @ManyToOne
@@ -23,6 +24,15 @@ public class Strain extends Auditable {
     private User user;
 
     public Strain() {
+    }
+
+    public Strain(long strainid, String name, String type, String sickness, String effects, User user) {
+        this.strainid = strainid;
+        this.name = name;
+        this.type = type;
+        this.sickness = sickness;
+        this.effects = effects;
+        this.user = user;
     }
 
     public long getStrainid() {
@@ -49,12 +59,20 @@ public class Strain extends Auditable {
         this.type = type;
     }
 
-    public String getDescription() {
-        return description;
+    public String getSickness() {
+        return sickness;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSickness(String sickness) {
+        this.sickness = sickness;
+    }
+
+    public String getEffects() {
+        return effects;
+    }
+
+    public void setEffects(String effects) {
+        this.effects = effects;
     }
 
     public User getUser() {
@@ -64,6 +82,4 @@ public class Strain extends Auditable {
     public void setUser(User user) {
         this.user = user;
     }
-
-
 }

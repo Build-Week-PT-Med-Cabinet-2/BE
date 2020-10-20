@@ -1,7 +1,10 @@
 package medcabinet.demo.controllers;
 
 import medcabinet.demo.models.User;
+import medcabinet.demo.models.UserMinimum;
 import medcabinet.demo.models.UserRoles;
+import medcabinet.demo.services.RoleService;
+import medcabinet.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -19,7 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -59,7 +62,8 @@ public class OpenController
             produces = {"application/json"})
     public ResponseEntity<?> addSelf(
             HttpServletRequest httpServletRequest,
-            @Valid
+
+//            @Valid
             @RequestBody
                     UserMinimum newminuser)
             throws
@@ -74,7 +78,7 @@ public class OpenController
         // add the default role of user
         Set<UserRoles> newRoles = new HashSet<>();
         newRoles.add(new UserRoles(newuser,
-                roleService.findByName("user")));
+                roleService.findByRoleName("user")));
         newuser.setRoles(newRoles);
 
         newuser = userService.save(newuser);
